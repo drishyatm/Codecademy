@@ -3,6 +3,7 @@ This class models the form on the Codecademy Login page
 The form consists of some input fields username and password
 """
 import conf.locators_conf as locators
+import conf.login_page_conf as login_page_conf
 from utils.Wrapit import Wrapit
 
 
@@ -13,7 +14,7 @@ class Codecademy_Login_Page_Objects:
     user_name_field = locators.username
     code_password = locators.password
     login_button = locators.login_button
-    redirect_title = "Dashboard"
+    redirect_title = login_page_conf.redirect_title_home
 
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
@@ -42,7 +43,7 @@ class Codecademy_Login_Page_Objects:
 
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
-    def click_login_button(self):
+    def click_log_in_button(self):
         "Click on 'Log in' button"
         result_flag = self.click_element(self.login_button)
         self.conditional_write(result_flag,
@@ -65,11 +66,11 @@ class Codecademy_Login_Page_Objects:
 
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
-    def Log_in(self, username, password):
+    def log_in(self, username, password):
         "Submit the Login page"
         result_flag = self.set_user_name(username)
         result_flag &= self.set_password(password)
-        result_flag &= self.click_login_button()
+        result_flag &= self.click_log_in_button()
         result_flag &= self.check_redirect()
 
         return result_flag

@@ -1,17 +1,18 @@
 """
 This class models the redirect page of the Selenium tutorial
-URL: selenium-tutorial-redirect
-The page consists of a header, footer and some text
+URL: learn
+The Catalog would be there to select the course
 """
-from .Base_Page import Base_Page
+
 import conf.locators_conf as locators
-from utils.Wrapit import Wrapit
 import conf.home_page_conf as home_page_conf
+from utils.Wrapit import Wrapit
+from .Base_Page import Base_Page
 
 
 
 class Codecademy_Home_Page(Base_Page):
-    "Page Object for the Codecademy Home page"
+    "Page object for the Codecademy Home page"
 
     # locators
     heading = locators.heading
@@ -35,8 +36,8 @@ class Codecademy_Home_Page(Base_Page):
         "Check if the heading exists"
         result_flag = self.check_element_present(self.heading)
         self.conditional_write(result_flag,
-                               positive='Correct heading present on Home page',
-                               negative='Heading on Home page is INCORRECT!!',
+                               positive='Heading present on Home page',
+                               negative='Heading on Homepage is not matching!!',
                                level='debug')
 
         return result_flag
@@ -44,7 +45,7 @@ class Codecademy_Home_Page(Base_Page):
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
     def click_catalog(self):
-        " Click the catalog in home page"
+        "Click the catalog in home page"
         result_flag = self.click_element(self.catalog_path)
         self.conditional_write(result_flag,
                                positive='Clicked on the catalog on home page',
@@ -63,7 +64,6 @@ class Codecademy_Home_Page(Base_Page):
             result_flag = True
             self.switch_page("Catalog page")
         
-        
         return result_flag
 
     def click_search_bar(self):
@@ -77,7 +77,7 @@ class Codecademy_Home_Page(Base_Page):
         return result_flag
 
     def set_search_course(self, search_text_course):
-        "type the course in seach bar"
+        "Type the course in seach bar"
         result_flag = self.set_text(self.search_type_text_area, search_text_course)
         self.conditional_write(result_flag,
                                positive='Set the course_name to: %s' % search_text_course,
@@ -87,6 +87,7 @@ class Codecademy_Home_Page(Base_Page):
         return result_flag
 
     def search_course_enter(self):
+        "Hit enter inorder to search"
         result_flag = self.hit_enter(self.search_type_text_area)
         self.conditional_write(result_flag,
                                positive='Hit the enter',
@@ -98,11 +99,9 @@ class Codecademy_Home_Page(Base_Page):
     def verify_title_search(self):
        "Check if we have been redirected to the redirect page"
        result_flag = False
-
        if self.redirect_title_search in self.driver.title:
            result_flag = True
 
-       print("Verified the title in search")    
        return result_flag
 
     def select_popular_search(self):
@@ -150,6 +149,4 @@ class Codecademy_Home_Page(Base_Page):
         result_flag &= self.verify_title_search()
         result_flag &= self.verify_course_list()
 
-
-        print("search_course return statement", result_flag)
         return result_flag  
