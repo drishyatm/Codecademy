@@ -7,7 +7,7 @@ import conf.login_page_conf as login_page_conf
 from utils.Wrapit import Wrapit
 
 
-class Codecademy_Login_Page_Objects:
+class Codecademy_Login_Page_Object:
     "Page object for the Login Page"
 
     # locators
@@ -43,7 +43,7 @@ class Codecademy_Login_Page_Objects:
 
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
-    def click_log_in_button(self):
+    def click_login_button(self):
         "Click on 'Log in' button"
         result_flag = self.click_element(self.login_button)
         self.conditional_write(result_flag,
@@ -66,11 +66,11 @@ class Codecademy_Login_Page_Objects:
 
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
-    def log_in(self, username, password):
+    def Log_in(self, username, password):
         "Submit the Login page"
         result_flag = self.set_user_name(username)
         result_flag &= self.set_password(password)
-        result_flag &= self.click_log_in_button()
+        result_flag &= self.click_login_button()
         result_flag &= self.check_redirect()
 
         return result_flag

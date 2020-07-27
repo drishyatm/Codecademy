@@ -1,12 +1,14 @@
 """
-This class models the redirect page of the Selenium tutorial
-URL: selenium-tutorial-redirect
-The page consists of a header, footer and some text
+This class models the Catalog page for Codecademy
+URL: 'catalog/all'
+The Catalog and list of all courses 
+Select one of the course from the catalog
 """
 from utils.Wrapit import Wrapit
 from .Base_Page import Base_Page
 import conf.locators_conf as locators
 import conf.catalog_page_conf as courses
+
 
 class Codecademy_Catalog_Page(Base_Page):
     "Page Object for the Catalog page"
@@ -37,7 +39,8 @@ class Codecademy_Catalog_Page(Base_Page):
     @Wrapit._screenshot
     def click_sql_course(self):
         " Click the SQL course in catalog page"
-        result_flag = self.click_element(self.sql_course_path%self.course_name)
+        result_flag = self.click_element(
+            self.sql_course_path % self.course_name)
         self.conditional_write(result_flag,
                                positive='Clicked on the SQL course ',
                                negative='Could not click on the SQL course',

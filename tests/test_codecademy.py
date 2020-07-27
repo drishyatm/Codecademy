@@ -9,14 +9,13 @@ Verify the recommended course and select the recommened course
 Click the start to enroll for the course
 """
 
-
-from page_objects.PageFactory import PageFactory
-from utils.Option_Parser import Option_Parser
-import conf.login_page_conf as conf
 import os
 import sys
 import time
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import conf.login_page_conf as conf
+from page_objects.PageFactory import PageFactory
+from utils.Option_Parser import Option_Parser
 
 
 def test_codecademy(test_obj):
