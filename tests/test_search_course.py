@@ -28,20 +28,20 @@ def test_codecademy(test_obj):
         start_time = int(time.time())
 
         # This is the test object, you can change it to the desired page with relevance to the page factory
-        test_obj = PageFactory.get_page_object("Main page")
+        test_obj = PageFactory.get_page_object("Login page")
 
         # Turn on the highlighting feature
         test_obj.turn_on_highlight()
 
-        #  Get the login details from the conf file for login page
+        # Get the login details from the conf file for login page
         user_name = conf.user_name
         code_password = conf.password
         
-        #  Get the  details from the conf file for home page
+        # Get the  details from the conf file for home page
         search_text_course = home_page_conf.search_text_course
      
         # Set and log in to Codecademy
-        result_flag = test_obj.submit_form(user_name, code_password)
+        result_flag = test_obj.Log_in(user_name, code_password)
         test_obj.log_result(result_flag,
                             positive="Successfully submitted the form\n",
                             negative="Failed to submit the form \nOn url: %s" % test_obj.get_current_url(),

@@ -28,7 +28,7 @@ def test_codecademy(test_obj):
         start_time = int(time.time())
 
         # This is the test object for the main page
-        test_obj = PageFactory.get_page_object("Main page")
+        test_obj = PageFactory.get_page_object("Login page")
 
         # Turn on the highlighting feature
         test_obj.turn_on_highlight()
@@ -38,7 +38,7 @@ def test_codecademy(test_obj):
         codecademy_password = conf.password
                
         # Set and log in to Codecademy
-        result_flag = test_obj.submit_form(user_name, codecademy_password)
+        result_flag = test_obj.Log_in(user_name, codecademy_password)
         test_obj.log_result(result_flag,
                             positive="Successfully submitted the form\n",
                             negative="Failed to submit the form \nOn url: %s" % test_obj.get_current_url(),

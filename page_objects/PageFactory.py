@@ -29,7 +29,7 @@ class PageFactory():
         page_name = page_name.lower()
         if page_name in ["zero", "zero page", "agent zero"]:
             test_obj = Zero_Page(base_url=base_url)
-        elif page_name == "main page":
+        elif page_name == "login page":
             test_obj = Codecademy_Login_Page(base_url=base_url)
         elif page_name == "home page":
             test_obj = Codecademy_Home_Page(base_url=base_url)

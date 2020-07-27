@@ -42,7 +42,7 @@ class Codecademy_Login_Page_Objects:
 
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
-    def log_in(self):
+    def click_login_button(self):
         "Click on 'Log in' button"
         result_flag = self.click_element(self.login_button)
         self.conditional_write(result_flag,
@@ -65,7 +65,7 @@ class Codecademy_Login_Page_Objects:
 
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
-    def submit_form(self, username, password):
+    def Log_in(self, username, password):
         "Submit the Login page"
         result_flag = self.set_user_name(username)
         result_flag &= self.set_password(password)
