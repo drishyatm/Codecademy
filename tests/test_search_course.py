@@ -1,25 +1,25 @@
 """
-This is for end to end scenario for searching course . 
+This is for end to end scenario for searching course.
 Logging in to the codecademy
-Home page click the search icon 
-Type the search course name 
-verify the search page with title 
-Click on search icon again 
+Home page click the search icon
+Type the search course name
+verify the search page with title
+Click on search icon again
 click on any of the popular search course ( selected html)
 """
+from page_objects.PageFactory import PageFactory
+from utils.Option_Parser import Option_Parser
+import conf.home_page_conf as home_page_conf
+import conf.login_page_conf as conf
 import os
 import sys
 import time
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from utils.Option_Parser import Option_Parser
-from page_objects.PageFactory import PageFactory
-import conf.login_page_conf as conf
-import conf.home_page_conf as home_page_conf
+
 
 def test_codecademy(test_obj):
     "Run the test"
     try:
-    
         # Initalize flags for tests summary
         expected_pass = 0
         actual_pass = -1
@@ -27,7 +27,7 @@ def test_codecademy(test_obj):
         # Set start_time with current time
         start_time = int(time.time())
 
-        # This is the test object, you can change it to the desired page with relevance to the page factory
+        # This is the test object
         test_obj = PageFactory.get_page_object("Login page")
 
         # Turn on the highlighting feature
@@ -36,15 +36,16 @@ def test_codecademy(test_obj):
         # Get the login details from the conf file for login page
         user_name = conf.user_name
         code_password = conf.password
-        
+
         # Get the  details from the conf file for home page
         search_text_course = home_page_conf.search_text_course
-     
+
         # Set and log in to Codecademy
         result_flag = test_obj.Log_in(user_name, code_password)
         test_obj.log_result(result_flag,
                             positive="Successfully submitted the form\n",
-                            negative="Failed to submit the form \nOn url: %s" % test_obj.get_current_url(),
+                            negative="Failed to submit the form \nOn url: %s"
+                            % test_obj.get_current_url(),
                             level="critical")
 
         # Selecting course from catalog
@@ -55,9 +56,8 @@ def test_codecademy(test_obj):
                             level="critical")
         test_obj.write('Script duration: %d seconds\n' %
                        (int(time.time()-start_time)))
-        
-        
-        #  Print out the result
+
+        # Print out the result
         test_obj.write_test_summary()
         expected_pass = test_obj.result_counter
         actual_pass = test_obj.pass_counter
@@ -81,8 +81,10 @@ if __name__ == '__main__':
         test_obj = PageFactory.get_page_object("Zero", base_url=options.url)
 
         # Setup and register a driver
-        test_obj.register_driver(options.remote_flag, options.os_name, options.os_version, options.browser,
-                                 options.browser_version, options.remote_project_name, options.remote_build_name)
+        test_obj.register_driver(options.remote_flag,
+                                 options.os_name, options.os_version, options.browser,
+                                 options.browser_version, options.remote_project_name,
+                                 options.remote_build_name)
 
         test_codecademy(test_obj)
 

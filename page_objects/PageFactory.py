@@ -4,14 +4,12 @@ get_page_object() returns the appropriate page object.
 Add elif clauses as and when you implement new pages.
 Pages implemented so far:
 1. Zero page
-2. Tutorial Main page
+2. Login page
 3. Codecademy_Home_Page
 4. Codecademy Catalog_Page
 5. Codecademy_SQL_Course_Page
 6. Codecademy_Enroll_SQL_Course_Page
 """
-
-
 import conf.base_url_conf
 from page_objects.zero_page import Zero_Page
 from page_objects.codecademy_login_page import Codecademy_Login_Page
@@ -39,9 +37,9 @@ class PageFactory():
             test_obj = Codecademy_SQL_Course_Page(base_url=base_url)
         elif page_name == "learn sql course page":
             test_obj = Codecademy_Enroll_SQL_Course_Page(base_url=base_url)
-            
+
         else:
-            print("not working AAA")
+            print("not working in Page Facotry ")
 
         return test_obj
 

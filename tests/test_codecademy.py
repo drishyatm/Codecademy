@@ -9,13 +9,15 @@ Verify the recommended course and select the recommened course
 Click the start to enroll for the course
 """
 
+
+from page_objects.PageFactory import PageFactory
+from utils.Option_Parser import Option_Parser
+import conf.login_page_conf as conf
 import os
 import sys
 import time
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from utils.Option_Parser import Option_Parser
-from page_objects.PageFactory import PageFactory
-import conf.login_page_conf as conf
+
 
 def test_codecademy(test_obj):
     "Run the test"
@@ -33,15 +35,16 @@ def test_codecademy(test_obj):
         # Turn on the highlighting feature
         test_obj.turn_on_highlight()
 
-        #  Get the test details from the conf file
+        # Get the test details from the conf file
         user_name = conf.user_name
         codecademy_password = conf.password
-               
+
         # Set and log in to Codecademy
         result_flag = test_obj.Log_in(user_name, codecademy_password)
         test_obj.log_result(result_flag,
                             positive="Successfully submitted the form\n",
-                            negative="Failed to submit the form \nOn url: %s" % test_obj.get_current_url(),
+                            negative="Failed to submit the form \nOn url: %s"
+                            % test_obj.get_current_url(),
                             level="critical")
 
         # Selecting course from catalog
@@ -50,25 +53,26 @@ def test_codecademy(test_obj):
                             positive="Catalog check was successful\n",
                             negative="Catalog looks wrong.%s" % test_obj.get_current_url(),
                             level="critical")
-      
-       
 
         result_flag = test_obj.select_course()
         test_obj.log_result(result_flag,
                             positive="Successfully Clicked the Course in Catalog page\n",
-                            negative="Failed to Click the course in Catalog page \nOn url: %s" % test_obj.get_current_url(),
+                            negative="Failed to Click the course in Catalog page \nOn url:%s"
+                            % test_obj.get_current_url(),
                             level="critical")
-        
+
         result_flag = test_obj.select_course_sql()
         test_obj.log_result(result_flag,
                             positive="Successfully Identified the Course SQL\n",
-                            negative="Failed to Identify the course in SQL page \nOn url: %s" % test_obj.get_current_url(),
+                            negative="Failed to Identify the course in SQL page \nOn url:%s"
+                            % test_obj.get_current_url(),
                             level="critical")
 
         result_flag = test_obj.select_enroll_course_sql()
         test_obj.log_result(result_flag,
                             positive="Successfully enrolled the Course SQL\n",
-                            negative="Failed to enroll the course in SQL page \nOn url: %s" % test_obj.get_current_url(),
+                            negative="Failed to enroll the course in SQL page \nOn url:%s"
+                            % test_obj.get_current_url(),
                             level="critical")
 
         # Print out the result
@@ -97,8 +101,9 @@ if __name__ == '__main__':
         test_obj = PageFactory.get_page_object("Zero", base_url=options.url)
 
         # Setup and register a driver
-        test_obj.register_driver(options.remote_flag, options.os_name, options.os_version, options.browser,
-                                 options.browser_version, options.remote_project_name, options.remote_build_name)
+        test_obj.register_driver(options.remote_flag, options.os_name, options.os_version,
+                                 options.browser, options.browser_version,
+                                 options.remote_project_name, options.remote_build_name)
 
         test_codecademy(test_obj)
 

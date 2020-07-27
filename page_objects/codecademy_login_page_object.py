@@ -7,7 +7,7 @@ from utils.Wrapit import Wrapit
 
 
 class Codecademy_Login_Page_Objects:
-    "Page object for the Form"
+    "Page object for the Login Page"
 
     # locators
     user_name_field = locators.username
@@ -69,7 +69,7 @@ class Codecademy_Login_Page_Objects:
         "Submit the Login page"
         result_flag = self.set_user_name(username)
         result_flag &= self.set_password(password)
-        result_flag &= self.log_in()
+        result_flag &= self.click_login_button()
         result_flag &= self.check_redirect()
 
         return result_flag
