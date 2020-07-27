@@ -115,7 +115,7 @@ class Codecademy_Home_Page(Base_Page):
         return result_flag
 
     def verify_course_list(self):
-        "verifying the courses are displayed as per search"
+        "Verifying the courses are displayed as per search"
         result_flag = self.check_element_present(self.search_redirect_page_check)
         self.conditional_write(result_flag,
                                positive='List of courses Displayed on the Home page',
