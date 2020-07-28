@@ -1,13 +1,14 @@
+import os
+import pytest
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from utils import Tesults
 from utils.email_pytest_report import Email_Pytest_Report
 from utils import post_test_reports_to_slack
 from conf import base_url_conf
 from conf import browser_os_name_conf
 from page_objects.PageFactory import PageFactory
-import os
-import pytest
-import sys
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 
 
 @pytest.fixture

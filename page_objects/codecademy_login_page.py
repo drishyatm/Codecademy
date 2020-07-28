@@ -11,5 +11,5 @@ class Codecademy_Login_Page(Base_Page, Codecademy_Login_Page_Object):
     def start(self):
         "Use this method to go to specific URL -- if needed"
         url = 'login'
-        print("launching the page")
+        print("launching the Login page")
         self.open(url)

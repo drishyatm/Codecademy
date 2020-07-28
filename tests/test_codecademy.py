@@ -30,7 +30,7 @@ def test_codecademy(test_obj):
 
         # This is the test object for the main page
         test_obj = PageFactory.get_page_object("Login page")
-
+        
         # Turn on the highlighting feature
         test_obj.turn_on_highlight()
 

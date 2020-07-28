@@ -66,6 +66,8 @@ class Codecademy_Home_Page(Base_Page):
         
         return result_flag
 
+    @Wrapit._exceptionHandler
+    @Wrapit._screenshot
     def click_search_bar(self):
         "Click on the search bar"
         result_flag = self.click_element(self.search_icon)
@@ -76,6 +78,8 @@ class Codecademy_Home_Page(Base_Page):
 
         return result_flag
 
+    @Wrapit._exceptionHandler
+    @Wrapit._screenshot
     def set_search_course(self, search_text_course):
         "Type the course in seach bar"
         result_flag = self.set_text(self.search_type_text_area, search_text_course)
@@ -104,6 +108,8 @@ class Codecademy_Home_Page(Base_Page):
 
        return result_flag
 
+    @Wrapit._exceptionHandler
+    @Wrapit._screenshot
     def select_popular_search(self):
         "Click on the Popular search options "
         result_flag = self.click_element(self.popular_search_area%self.course_name)

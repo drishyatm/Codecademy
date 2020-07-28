@@ -65,7 +65,6 @@ class Codecademy_Login_Page_Object:
         return result_flag
 
     @Wrapit._exceptionHandler
-    @Wrapit._screenshot
     def Log_in(self, username, password):
         "Submit the Login page"
         result_flag = self.set_user_name(username)
