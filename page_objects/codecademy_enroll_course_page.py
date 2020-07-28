@@ -1,15 +1,11 @@
-
-from utils.Wrapit import Wrapit
-import conf.locators_conf as locators
-from .Base_Page import Base_Page
-
-
 """
 This class models the Codecademy page of the Enrolling the course 
 URL: learn/learn-sql
 Verify the heading, click on start button of the course and verify the redirect
 """
-
+from utils.Wrapit import Wrapit
+import conf.locators_conf as locators
+from .Base_Page import Base_Page
 
 class Codecademy_Enroll_Course_Page(Base_Page):
     "Page Object for the Enroll Course Page page"
@@ -39,7 +35,7 @@ class Codecademy_Enroll_Course_Page(Base_Page):
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
     def click_start_course(self):
-        " Click the Start button in Recommended Course page"
+        "Click the Start button in Recommended Course page"
         result_flag = self.click_element(self.enroll_course_button)
         self.conditional_write(result_flag,
                                positive='Clicked on the Start button  in the Learn SQL course page ',
@@ -50,19 +46,19 @@ class Codecademy_Enroll_Course_Page(Base_Page):
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
     def check_redirect(self):
-        "Check if we have been redirected to the learn SQL course page"
+        "Check if we have been redirected to the Recommended course page"
         result_flag = False
         print(self.driver.title)
         if self.redirect_title_course in self.driver.title:
             result_flag = True
-            #self.switch_page("Learn SQL course page")
+         
 
         return result_flag
 
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
     def select_enroll_course_sql(self):
-        "Selecting the course"
+        "Enroll for the course"
         result_flag = self.check_heading()
         result_flag &= self.click_start_course()
         #result_flag &= self.check_redirect()
