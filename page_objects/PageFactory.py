@@ -15,8 +15,8 @@ from page_objects.zero_page import Zero_Page
 from page_objects.codecademy_login_page import Codecademy_Login_Page
 from page_objects.codecademy_home_page import Codecademy_Home_Page
 from page_objects.codecademy_catalog_page import Codecademy_Catalog_Page
-from page_objects.codecademy_sql_course_page import Codecademy_SQL_Course_Page
-from page_objects.codecademy_enroll_sql_course_page import Codecademy_Enroll_SQL_Course_Page
+from page_objects.codecademy_course_page import Codecademy_Course_Page
+from page_objects.codecademy_enroll_course_page import Codecademy_Enroll_Course_Page
 
 
 class PageFactory():
@@ -33,9 +33,9 @@ class PageFactory():
             test_obj = Codecademy_Home_Page(base_url=base_url)
         elif page_name == "catalog page":
             test_obj = Codecademy_Catalog_Page(base_url=base_url)
-        elif page_name == "sql course page":
-            test_obj = Codecademy_SQL_Course_Page(base_url=base_url)
-        elif page_name == "learn sql course page":
+        elif page_name == "course page":
+            test_obj = Codecademy_Course_Page(base_url=base_url)
+        elif page_name == "recommended course page":
             test_obj = Codecademy_Enroll_SQL_Course_Page(base_url=base_url)
 
         else:

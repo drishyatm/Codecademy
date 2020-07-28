@@ -11,7 +11,7 @@ Verify the heading, click on start button of the course and verify the redirect
 """
 
 
-class Codecademy_Enroll_SQL_Course_Page(Base_Page):
+class Codecademy_Enroll_Course_Page(Base_Page):
     "Page Object for the Enroll Course Page page"
 
     # locators
@@ -29,8 +29,8 @@ class Codecademy_Enroll_SQL_Course_Page(Base_Page):
         "Check if the heading exists"
         result_flag = self.check_element_present(self.heading_learn_sql)
         self.conditional_write(result_flag,
-                               positive='Correct heading present on SQL Course page',
-                               negative='Heading on SQL Course Page is INCORRECT!!',
+                               positive='Heading present on Enroll Course page',
+                               negative='Heading on Enroll Course Page is INCORRECT!!',
                                level='debug')
 
         return result_flag
@@ -39,7 +39,7 @@ class Codecademy_Enroll_SQL_Course_Page(Base_Page):
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
     def click_start_course(self):
-        " Click the Start button in Learn SQL Course page"
+        " Click the Start button in Recommended Course page"
         result_flag = self.click_element(self.enroll_course_button)
         self.conditional_write(result_flag,
                                positive='Clicked on the Start button  in the Learn SQL course page ',

@@ -55,7 +55,7 @@ class Codecademy_Catalog_Page(Base_Page):
         result_flag = False
         if self.redirect_title_course in self.driver.title:
             result_flag = True
-            self.switch_page("SQL course page")
+            self.switch_page("Course page")
 
         return result_flag
 

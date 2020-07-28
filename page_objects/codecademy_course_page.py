@@ -9,7 +9,7 @@ import conf.course_page_conf as course_page_conf
 from utils.Wrapit import Wrapit
 
 
-class Codecademy_SQL_Course_Page(Base_Page):
+class Codecademy_Course_Page(Base_Page):
     "Page Object for the Course page"
 
     # locators
@@ -53,19 +53,19 @@ class Codecademy_SQL_Course_Page(Base_Page):
         "Click the  course in  Course page"
         result_flag = self.click_element(self.recommeded_course_sql_path)
         self.conditional_write(result_flag,
-                               positive='Clicked on the SQL in the SQL course page ',
-                               negative='Could not click on the SQL course in SQL course page',
+                               positive='Clicked on the %s in the course'%self.redirect_title_course,
+                               negative='Could not click on the recommended course %s'%self.redirect_title_course,
                                level='debug')
         return result_flag
 
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
     def check_redirect(self):
-        "Check if we have been redirected to the learn SQL course page"
+        "Check if we have been redirected to the Recommended course page"
         result_flag = False
         if self.redirect_title_course in self.driver.title:
             result_flag = True
-            self.switch_page("Learn SQL course page")
+            self.switch_page("Recommended course page")
 
         return result_flag
 
