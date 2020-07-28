@@ -1,22 +1,23 @@
 """
-This class models the redirect page of the Selenium tutorial
-URL: selenium-tutorial-redirect
-The page consists of a header, footer and some text
+This Page is for the SQL course 
+URL: catalog/language/sql
+This page consists of the list of SQL courses for which we select the recommended SQL course
 """
 from .Base_Page import Base_Page
 import conf.locators_conf as locators
+import conf.course_page_conf as course_page_conf
 from utils.Wrapit import Wrapit
 
 
 class Codecademy_SQL_Course_Page(Base_Page):
-    "Page Object for the Catalog page"
+    "Page Object for the Course page"
 
     # locators
     heading_course_sql = locators.heading_course_sql
-    sql_course_path = locators.sql_course_path
+    course_heading = course_page_conf.course_heading
     recommended_path_sql = locators.recommended_path_sql
     recommeded_course_sql_path = locators.recommeded_course_sql_path
-    redirect_title_course = "Learn SQL"
+    redirect_title_course = course_page_conf.redirect_title_course
 
     def start(self):
         "Use this method to go to specific URL -- if needed"
@@ -26,21 +27,21 @@ class Codecademy_SQL_Course_Page(Base_Page):
     @Wrapit._exceptionHandler
     def check_heading(self):
         "Check if the heading exists"
-        result_flag = self.check_element_present(self.heading_course_sql)
+        result_flag = self.check_element_present(
+            self.heading_course_sql % self.course_heading)
         self.conditional_write(result_flag,
-                               positive='Correct heading present on SQL Course page',
-                               negative='Heading on SQL Course Page is INCORRECT!!',
+                               positive='heading present on %s Course page'%self.course_heading,
+                               negative='Heading on %s Course Page is INCORRECT!!'%self.course_heading,
                                level='debug')
 
         return result_flag
-      
 
     @Wrapit._exceptionHandler
     def check_recommended(self):
         " Click the SQL course in catalog page"
         result_flag = self.check_element_present(self.recommended_path_sql)
         self.conditional_write(result_flag,
-                               positive='Verified the Recommended course in SQL',
+                               positive='Verified the Recommended course in %s'%s,
                                negative='Could not verify the Recommeded course in SQL ',
                                level='debug')
 
@@ -49,7 +50,7 @@ class Codecademy_SQL_Course_Page(Base_Page):
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
     def click_sql_course(self):
-        " Click the SQL course in SQL Course page"
+        " Click the SQL course in  Course page"
         result_flag = self.click_element(self.recommeded_course_sql_path)
         self.conditional_write(result_flag,
                                positive='Clicked on the SQL in the SQL course page ',
@@ -62,7 +63,6 @@ class Codecademy_SQL_Course_Page(Base_Page):
     def check_redirect(self):
         "Check if we have been redirected to the learn SQL course page"
         result_flag = False
-        print(self.driver.title)
         if self.redirect_title_course in self.driver.title:
             result_flag = True
             self.switch_page("Learn SQL course page")

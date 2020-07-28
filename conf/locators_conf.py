@@ -1,5 +1,5 @@
 # Common locator file for all locators
-# Locators are ordered alphabetically
+
 
 ############################################
 # Selectors we can use
@@ -22,7 +22,7 @@ login_button = "xpath,//BUTTON[@id='user_submit']"
 heading = "xpath,//title[text()='Dashboard | Codecademy']"
 catalog_path = "xpath,//A[text()='Catalog']"
 search_icon = "xpath,//BUTTON[@data-testid='header-search']"
-search_type_text_area= "xpath,//input[@name='query']"
+search_type_text_area = "xpath,//input[@name='query']"
 popular_search_area = "xpath,//BUTTON[text()='%s']"
 search_redirect_page_check = "xpath,//div//span[text()='1']"
 
@@ -31,7 +31,7 @@ heading_catalog = "xpath,//title[text()='All Courses & Tutorials | Codecademy']"
 sql_course_path = "xpath,//A[text()='%s']"
 
 # Locators for codecademy sql course page(codecademy_sql_course_page.py)
-heading_course_sql = "xpath,//title[text() = 'SQL Courses & Tutorials | Codecademy']"
+heading_course_sql = "xpath,//title[text() = '%s']"
 recommended_path_sql = "xpath,//H2[text() = 'Recommended']"
 recommeded_course_sql_path = "xpath,//a[@href='/learn/learn-sql'][@data-testid='curriculum-card-learn-sql']"
 

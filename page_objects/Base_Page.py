@@ -645,7 +645,7 @@ class Base_Page(Borg, unittest.TestCase):
         except Exception as e:
             self.write(str(e), 'debug')
             self.exceptions.append("An exception occurred when hitting enter")
-            #return result_flag
+           
         
         return result_flag
         

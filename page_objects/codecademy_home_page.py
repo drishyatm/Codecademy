@@ -1,15 +1,15 @@
 """
 This class models the redirect page of the Selenium tutorial
 URL: learn
-The Catalog would be there to select the course
+The Catalog would be there to select the course. 
+We can also search the course by typing the course name or pick any from the popular search.
+
 """
 
 import conf.locators_conf as locators
 import conf.home_page_conf as home_page_conf
 from utils.Wrapit import Wrapit
 from .Base_Page import Base_Page
-
-
 
 class Codecademy_Home_Page(Base_Page):
     "Page object for the Codecademy Home page"

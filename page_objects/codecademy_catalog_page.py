@@ -38,7 +38,7 @@ class Codecademy_Catalog_Page(Base_Page):
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
     def click_course(self):
-        " Click the SQL course in catalog page"
+        "Click the SQL course in catalog page"
         result_flag = self.click_element(
             self.sql_course_path % self.course_name)
         self.conditional_write(result_flag,
