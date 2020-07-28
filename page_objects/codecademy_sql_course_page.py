@@ -30,8 +30,8 @@ class Codecademy_SQL_Course_Page(Base_Page):
         result_flag = self.check_element_present(
             self.heading_course_sql % self.course_heading)
         self.conditional_write(result_flag,
-                               positive='heading present on %s Course page'%self.course_heading,
-                               negative='Heading on %s Course Page is INCORRECT!!'%self.course_heading,
+                               positive='heading present on %s page'%self.course_heading,
+                               negative='Heading on %s Page is INCORRECT!!'%self.course_heading,
                                level='debug')
 
         return result_flag
@@ -41,16 +41,16 @@ class Codecademy_SQL_Course_Page(Base_Page):
         " Click the SQL course in catalog page"
         result_flag = self.check_element_present(self.recommended_path_sql)
         self.conditional_write(result_flag,
-                               positive='Verified the Recommended course in %s'%s,
-                               negative='Could not verify the Recommeded course in SQL ',
+                               positive='Verified the Recommended course is %s'%self.redirect_title_course,
+                               negative='Could not verify the Recommeded course ',
                                level='debug')
 
         return result_flag
 
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
-    def click_sql_course(self):
-        " Click the SQL course in  Course page"
+    def click_course(self):
+        "Click the  course in  Course page"
         result_flag = self.click_element(self.recommeded_course_sql_path)
         self.conditional_write(result_flag,
                                positive='Clicked on the SQL in the SQL course page ',
@@ -75,7 +75,7 @@ class Codecademy_SQL_Course_Page(Base_Page):
         "Selecting the course"
         result_flag = self.check_heading()
         result_flag &= self.check_recommended()
-        result_flag &= self.click_sql_course()
+        result_flag &= self.click_course()
         result_flag &= self.check_redirect()
 
         return result_flag

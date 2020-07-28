@@ -29,8 +29,8 @@ class Codecademy_Catalog_Page(Base_Page):
         "Check if the heading exists"
         result_flag = self.check_element_present(self.heading_catalog)
         self.conditional_write(result_flag,
-                               positive='Correct heading present on Catalog page',
-                               negative='Heading on Catalog page is INCORRECT!!',
+                               positive='Heading present on Catalog page',
+                               negative='Heading on Catalog page is not matching!!',
                                level='debug')
 
         return result_flag
