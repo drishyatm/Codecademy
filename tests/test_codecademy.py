@@ -13,9 +13,9 @@ import os
 import sys
 import time
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import conf.login_page_conf as conf
 from page_objects.PageFactory import PageFactory
 from utils.Option_Parser import Option_Parser
+import conf.login_page_conf as conf
 
 
 def test_codecademy(test_obj):
@@ -62,15 +62,15 @@ def test_codecademy(test_obj):
 
         result_flag = test_obj.select_course_sql()
         test_obj.log_result(result_flag,
-                            positive="Successfully Identified the Course SQL\n",
-                            negative="Failed to Identify the course in SQL page \nOn url:%s"
+                            positive="Successfully Identified the Course \n",
+                            negative="Failed to Identify the recommended course  \nOn url:%s"
                             % test_obj.get_current_url(),
                             level="critical")
 
         result_flag = test_obj.select_enroll_course_sql()
         test_obj.log_result(result_flag,
-                            positive="Successfully enrolled the Course SQL\n",
-                            negative="Failed to enroll the course in SQL page \nOn url:%s"
+                            positive="Successfully enrolled the Course \n",
+                            negative="Failed to enroll the course  \nOn url:%s"
                             % test_obj.get_current_url(),
                             level="critical")
 
