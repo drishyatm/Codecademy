@@ -142,7 +142,6 @@ class Codecademy_Home_Page(Base_Page):
         return result_flag
 
     @Wrapit._exceptionHandler
-    @Wrapit._screenshot
     def search_course(self, search_text_course):
         "Click the search and enter the course name and search for it"
         result_flag = self.click_search_bar()
