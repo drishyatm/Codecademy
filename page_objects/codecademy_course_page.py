@@ -28,7 +28,7 @@ class Codecademy_Course_Page(Base_Page):
     def check_heading(self):
         "Check if the heading exists"
         result_flag = self.check_element_present(
-            self.heading_course_sql % self.course_heading)
+            self.heading_course % self.course_heading)
         self.conditional_write(result_flag,
                                positive='heading present on %s page'%self.course_heading,
                                negative='Heading on %s Page is INCORRECT!!'%self.course_heading,
@@ -38,8 +38,8 @@ class Codecademy_Course_Page(Base_Page):
 
     @Wrapit._exceptionHandler
     def check_recommended(self):
-        " Click the SQL course in catalog page"
-        result_flag = self.check_element_present(self.recommended_path_sql)
+        " Check the  recommended course in catalog page"
+        result_flag = self.check_element_present(self.recommended_path)
         self.conditional_write(result_flag,
                                positive='Verified the Recommended course is %s'%self.redirect_title_course,
                                negative='Could not verify the Recommeded course ',
@@ -51,7 +51,7 @@ class Codecademy_Course_Page(Base_Page):
     @Wrapit._screenshot
     def click_course(self):
         "Click the  course in  Course page"
-        result_flag = self.click_element(self.recommeded_course_sql_path)
+        result_flag = self.click_element(self.recommeded_course_path)
         self.conditional_write(result_flag,
                                positive='Clicked on the %s in the course'%self.redirect_title_course,
                                negative='Could not click on the recommended course %s'%self.redirect_title_course,
@@ -71,7 +71,7 @@ class Codecademy_Course_Page(Base_Page):
 
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
-    def select_course_sql(self):
+    def select_course_recommended(self):
         "Selecting the course"
         result_flag = self.check_heading()
         result_flag &= self.check_recommended()

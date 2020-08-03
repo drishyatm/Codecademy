@@ -27,15 +27,15 @@ popular_search_area = "xpath,//BUTTON[text()='%s']"
 search_redirect_page_check = "xpath,//div//span[text()='1']"
 
 # Locators for codecademy catalog page(codecademy_catalog_page.py)
-heading_catalog = "xpath,//title[text()='All Courses & Tutorials | Codecademy']"
+heading_catalog = "xpath,//title[text()='Catalog Home | Codecademy']"
 course_path = "xpath,//A[text()='%s']"
 
 # Locators for codecademy course page(codecademy_course_page.py)
 heading_course = "xpath,//title[text() = '%s']"
 recommended_path= "xpath,//H2[text() = 'Recommended']"
-recommeded_course_sql_path = "xpath,//a[@href='/learn/learn-sql'][@data-testid='curriculum-card-learn-sql']"
+recommeded_course_path = "xpath,//a[@href='/learn/learn-sql'][@data-testid='curriculum-card-learn-sql']"
 
 
 # Locators for codecademy enroll course page(codecademy_enroll_course_page.py)
-heading_learn_sql = "xpath,//title[text() = '%s']"
+heading_learn_sql = "xpath,//title[text() = 'Learn SQL | Codecademy']"
 enroll_course_button = "xpath,//header/descendant::A[@aria-label='Start Course'][text()='Start']"

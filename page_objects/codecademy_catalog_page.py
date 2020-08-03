@@ -21,7 +21,7 @@ class Codecademy_Catalog_Page(Base_Page):
 
     def start(self):
         "Use this method to go to specific URL -- if needed"
-        url = 'catalog/all'
+        url = 'catalog'
         self.open(url)
 
     @Wrapit._exceptionHandler
@@ -40,7 +40,7 @@ class Codecademy_Catalog_Page(Base_Page):
     def click_course(self):
         "Click the SQL course in catalog page"
         result_flag = self.click_element(
-            self.sql_course_path % self.course_name)
+            self.course_path % self.course_name)
         self.conditional_write(result_flag,
                                positive='Clicked on the %s course' %self.course_name,
                                negative='Could not click on the %s course'%self.course_name,

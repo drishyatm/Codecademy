@@ -59,7 +59,6 @@ class Codecademy_Home_Page(Base_Page):
     def check_redirect_catalog(self):
         "Check if we have been redirected to the redirect page"
         result_flag = False
-        
         if self.redirect_title_catalog in self.driver.title:
             result_flag = True
             self.switch_page("Catalog page")

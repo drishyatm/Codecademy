@@ -58,7 +58,7 @@ class Codecademy_Enroll_Course_Page(Base_Page):
 
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
-    def select_enroll_course_sql(self):
+    def select_enroll_course(self):
         "Enroll for the course"
         result_flag = self.check_heading()
         result_flag &= self.click_start_course()
