@@ -37,6 +37,8 @@ class PageFactory():
             test_obj = Codecademy_Course_Page(base_url=base_url)
         elif page_name == "recommended course page":
             test_obj = Codecademy_Enroll_Course_Page(base_url=base_url)
+        elif page_name == 'start course'
+            test_obj = Codecademy_Enroll_Course_Page(base_url=base_url)
 
         else:
             print("not working in Page Facotry ")
