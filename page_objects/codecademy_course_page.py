@@ -13,10 +13,10 @@ class Codecademy_Course_Page(Base_Page):
     "Page Object for the Course page"
 
     # locators
-    heading_course_sql = locators.heading_course_sql
+    heading_course = locators.heading_course
     course_heading = course_page_conf.course_heading
-    recommended_path_sql = locators.recommended_path_sql
-    recommeded_course_sql_path = locators.recommeded_course_sql_path
+    recommended_path = locators.recommended_path
+    recommeded_course_path= locators.recommeded_course_path
     redirect_title_course = course_page_conf.redirect_title_course
 
     def start(self):

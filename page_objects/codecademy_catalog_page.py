@@ -15,7 +15,7 @@ class Codecademy_Catalog_Page(Base_Page):
 
     # locators
     heading_catalog = locators.heading_catalog
-    sql_course_path = locators.sql_course_path
+    course_path = locators.course_path
     course_name = courses.course_name
     redirect_title_course = courses.redirect_title_course
 

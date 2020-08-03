@@ -17,7 +17,7 @@ from page_objects.codecademy_home_page import Codecademy_Home_Page
 from page_objects.codecademy_catalog_page import Codecademy_Catalog_Page
 from page_objects.codecademy_course_page import Codecademy_Course_Page
 from page_objects.codecademy_enroll_course_page import Codecademy_Enroll_Course_Page
-
+from page_objects.codecademy_start_course_page import Codecademy_Start_Course_Page
 
 class PageFactory():
     "PageFactory uses the factory design pattern."
@@ -37,7 +37,7 @@ class PageFactory():
             test_obj = Codecademy_Course_Page(base_url=base_url)
         elif page_name == "recommended course page":
             test_obj = Codecademy_Enroll_Course_Page(base_url=base_url)
-        elif page_name == 'start course':
+        elif page_name == 'start course page':
             test_obj = Codecademy_Start_Course_Page(base_url=base_url)
 
         else:

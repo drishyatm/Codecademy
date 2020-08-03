@@ -6,15 +6,15 @@ Verify the heading, click on start button of the course and verify the redirect
 from utils.Wrapit import Wrapit
 import conf.locators_conf as locators
 from .Base_Page import Base_Page
-import conf.course_page_conf as course_page_conf
 
-class Codecademy_Enroll_Course_Page(Base_Page):
+
+class Codecademy_Start_Course_Page(Base_Page):
     "Page Object for the Enroll Course Page page"
 
     # locators
     heading_learn_sql = locators.heading_learn_sql
     enroll_course_button = locators.enroll_course_button
-    redirect_title_course = course_page_conf.redirect_title_course
+    #redirect_title_course = 
 
     def start(self):
         "Use this method to go to specific URL -- if needed"
@@ -32,7 +32,6 @@ class Codecademy_Enroll_Course_Page(Base_Page):
 
         return result_flag
 
-   
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
     def click_start_course(self):
@@ -51,8 +50,6 @@ class Codecademy_Enroll_Course_Page(Base_Page):
         result_flag = False
         if self.redirect_title_course in self.driver.title:
             result_flag = True
-            self.switch_page("Start course page")
-         
 
         return result_flag
 
@@ -62,6 +59,6 @@ class Codecademy_Enroll_Course_Page(Base_Page):
         "Enroll for the course"
         result_flag = self.check_heading()
         result_flag &= self.click_start_course()
-        result_flag &= self.check_redirect()
+        #result_flag &= self.check_redirect()
 
         return result_flag
