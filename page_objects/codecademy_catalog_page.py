@@ -21,7 +21,7 @@ class Codecademy_Catalog_Page(Base_Page):
 
     def start(self):
         "Use this method to go to specific URL -- if needed"
-        url = 'catalog'
+        url = conf.catalog_url
         self.open(url)
 
     @Wrapit._exceptionHandler
@@ -49,7 +49,6 @@ class Codecademy_Catalog_Page(Base_Page):
         return result_flag
 
     @Wrapit._exceptionHandler
-    @Wrapit._screenshot
     def check_redirect(self):
         "Check if we have been redirected to the course page"
         result_flag = False
@@ -60,7 +59,6 @@ class Codecademy_Catalog_Page(Base_Page):
         return result_flag
 
     @Wrapit._exceptionHandler
-    @Wrapit._screenshot
     def select_course(self):
         "Selecting the course"
         result_flag = self.check_heading()
