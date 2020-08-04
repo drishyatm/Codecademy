@@ -6,7 +6,7 @@ Verify the heading, click on start button of the course and verify the redirect
 from utils.Wrapit import Wrapit
 import conf.locators_conf as locators
 from .Base_Page import Base_Page
-import conf.course_page_conf as course_page_conf
+import conf.test_codecademy_conf as conf
 
 class Codecademy_Enroll_Course_Page(Base_Page):
     "Page Object for the Enroll Course Page page"
@@ -14,7 +14,7 @@ class Codecademy_Enroll_Course_Page(Base_Page):
     # locators
     heading_learn_sql = locators.heading_learn_sql
     enroll_course_button = locators.enroll_course_button
-    redirect_title_course = course_page_conf.redirect_title_course
+    redirect_title_course = conf.redirect_title_course_recommended
 
     def start(self):
         "Use this method to go to specific URL -- if needed"

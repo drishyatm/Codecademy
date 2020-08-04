@@ -15,4 +15,4 @@ redirect_title_course = "SQL Courses & Tutorials"
 
 "This is conf file for the course page"
 course_heading = 'SQL Courses & Tutorials | Codecademy'
-redirect_title_recommeded = "Learn SQL"
+redirect_title_course_recommended = "Learn SQL"
