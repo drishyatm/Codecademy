@@ -7,7 +7,7 @@ Select one of the course from the catalog
 from utils.Wrapit import Wrapit
 from .Base_Page import Base_Page
 import conf.locators_conf as locators
-import conf.catalog_page_conf as courses
+import conf.test_codecademy_conf as conf
 
 
 class Codecademy_Catalog_Page(Base_Page):
@@ -16,8 +16,8 @@ class Codecademy_Catalog_Page(Base_Page):
     # locators
     heading_catalog = locators.heading_catalog
     course_path = locators.course_path
-    course_name = courses.course_name
-    redirect_title_course = courses.redirect_title_course
+    course_name = conf.course_name
+    redirect_title_course = conf.redirect_title_course
 
     def start(self):
         "Use this method to go to specific URL -- if needed"
@@ -38,7 +38,7 @@ class Codecademy_Catalog_Page(Base_Page):
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
     def click_course(self):
-        "Click the SQL course in catalog page"
+        "Click the course in catalog page"
         result_flag = self.click_element(
             self.course_path % self.course_name)
         self.conditional_write(result_flag,

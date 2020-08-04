@@ -1,11 +1,11 @@
 """
-This Page is for the SQL course 
+This Page is for the  course 
 URL: catalog/language/sql
-This page consists of the list of SQL courses for which we select the recommended SQL course
+This page consists of the list of courses for which we select the recommended course
 """
 from .Base_Page import Base_Page
 import conf.locators_conf as locators
-import conf.course_page_conf as course_page_conf
+import conf.test_codecademy_conf as conf
 from utils.Wrapit import Wrapit
 
 
@@ -14,10 +14,10 @@ class Codecademy_Course_Page(Base_Page):
 
     # locators
     heading_course = locators.heading_course
-    course_heading = course_page_conf.course_heading
+    course_heading = conf.course_heading
     recommended_path = locators.recommended_path
     recommeded_course_path= locators.recommeded_course_path
-    redirect_title_course = course_page_conf.redirect_title_course
+    redirect_title_course = conf.redirect_title_course_recommended
 
     def start(self):
         "Use this method to go to specific URL -- if needed"
