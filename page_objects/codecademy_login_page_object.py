@@ -20,7 +20,6 @@ class Codecademy_Login_Page_Object:
     @Wrapit._screenshot
     def set_user_name(self, user_name):
         "Set the user name on the form"
-        print("type the username")
         result_flag = self.set_text(self.user_name_field, user_name)
         self.conditional_write(result_flag,
                                positive='Set the user_name to: %s' % user_name,
@@ -54,7 +53,6 @@ class Codecademy_Login_Page_Object:
         return result_flag
 
     @Wrapit._exceptionHandler
-    @Wrapit._screenshot
     def check_redirect(self):
         "Check if we have been redirected to the redirect page"
         result_flag = False
