@@ -33,9 +33,9 @@ course_path = "xpath,//A[text()='%s']"
 # Locators for codecademy course page(codecademy_course_page.py)
 heading_course = "xpath,//title[text() = '%s']"
 recommended_path= "xpath,//H2[text() = 'Recommended']"
-recommeded_course_path = "xpath,//a[@href='/learn/learn-sql'][@data-testid='curriculum-card-learn-sql']"
+recommeded_course_path = "xpath,//a[@data-testid='%s']"
 
 
 # Locators for codecademy enroll course page(codecademy_enroll_course_page.py)
-heading_enroll_page = "xpath,//title[text() = 'Learn SQL | Codecademy']"
+heading_enroll_page = "xpath,//title[text() = '%s']"
 enroll_course_button = "xpath,//A[@data-testid='syllabus-header-cta-button'][text()='Start']"
