@@ -24,3 +24,6 @@ redirect_title_course_recommended = "Learn SQL"
 #conf file for enroll course page 
 enroll_url = 'learn/learn-sql'
 enroll_heading = 'Learn SQL | Codecademy'
+
+#conf file for start course page 
+start_course_url = 'courses/learn-sql/lessons/manipulation/exercises/sql'

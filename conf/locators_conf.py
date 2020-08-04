@@ -39,3 +39,7 @@ recommeded_course_path = "xpath,//a[@data-testid='%s']"
 # Locators for codecademy enroll course page(codecademy_enroll_course_page.py)
 heading_enroll_page = "xpath,//title[text() = '%s']"
 enroll_course_button = "xpath,//A[@data-testid='syllabus-header-cta-button'][text()='Start']"
+
+#Locators for start course page (codecademy_start_course_page.py)
+heading_start_page = "xpath,//title[text() = '%s']"
+connection_symbol = "xpath,//span[text()='Connecting to Codecademy']"

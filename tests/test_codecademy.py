@@ -74,6 +74,13 @@ def test_codecademy(test_obj):
                             % test_obj.get_current_url(),
                             level="critical")
 
+        result_flag = test_obj.learn_course()
+        test_obj.log_result(result_flag,
+                            positive="Successfully Started the Course \n",
+                            negative="Failed to start the course  \nOn url:%s"
+                            % test_obj.get_current_url(),
+                            level="critical")
+
         # Print out the result
         test_obj.write('Script duration: %d seconds\n' %
                        (int(time.time()-start_time)))

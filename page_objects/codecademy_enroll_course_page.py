@@ -61,6 +61,6 @@ class Codecademy_Enroll_Course_Page(Base_Page):
         "Enroll for the course"
         result_flag = self.check_heading()
         result_flag &= self.click_start_course()
-        #result_flag &= self.check_redirect()
+        result_flag &= self.check_redirect()
 
         return result_flag
