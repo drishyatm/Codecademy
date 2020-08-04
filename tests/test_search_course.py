@@ -13,7 +13,7 @@ import time
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from page_objects.PageFactory import PageFactory
 from utils.Option_Parser import Option_Parser
-import conf.test_codecademy_conf as conf
+import conf.test_codecademy_conf as config
 import conf.login_page_conf as conf
 
 
@@ -39,7 +39,7 @@ def test_codecademy(test_obj):
         code_password = conf.password
 
         # Get the  details from the conf file for home page
-        search_text_course = conf.search_text_course
+        search_text_course = config.search_text_course
 
         # Set and log in to Codecademy
         result_flag = test_obj.Log_in(user_name, code_password)
