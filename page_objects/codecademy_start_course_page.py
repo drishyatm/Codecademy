@@ -15,7 +15,7 @@ class Codecademy_Start_Course_Page(Base_Page):
     # locators
     heading_start_page = locators.heading_start_page
     heading_connecting = conf.enroll_heading
-    enroll_course_button = locators.enroll_course_button
+    scroll_path = locators.scroll_element
     #redirect_title_course = 
 
     def start(self):
@@ -35,18 +35,16 @@ class Codecademy_Start_Course_Page(Base_Page):
         return result_flag
 
     @Wrapit._exceptionHandler
-    @Wrapit._screenshot
-    def click_start_course(self):
-        "Click the Start button in Recommended Course page"
-        result_flag = self.click_element(self.enroll_course_button)
+    def scroll_down_course(self):
+        "Scroll down to start learning"
+        result_flag = self.scroll_down(self.scroll_path)
         self.conditional_write(result_flag,
-                               positive='Clicked on the Start button  in the   course page ',
-                               negative='Could not click on the Start button   course page',
+                               positive='Clicked on the Scroll in the   start page ',
+                               negative='Could not scroll on the start course page',
                                level='debug')
         return result_flag
 
     @Wrapit._exceptionHandler
-    @Wrapit._screenshot
     def check_redirect(self):
         "Check if we have been redirected to the Recommended course page"
         result_flag = False
@@ -56,10 +54,10 @@ class Codecademy_Start_Course_Page(Base_Page):
         return result_flag
 
     @Wrapit._exceptionHandler
-    @Wrapit._screenshot
     def learn_course(self):
         "Start  the course"
         result_flag = self.check_heading()
+        result_flag &= self.scroll_down_course()
        # result_flag &= self.click_start_course()
         #result_flag &= self.check_redirect()
 
