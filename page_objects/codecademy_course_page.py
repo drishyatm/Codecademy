@@ -1,6 +1,6 @@
 """
 This Page is for the  course 
-URL: catalog/language/sql
+URL: catalog/language/<course>
 This page consists of the list of courses for which we select the recommended course
 """
 from .Base_Page import Base_Page
@@ -16,12 +16,13 @@ class Codecademy_Course_Page(Base_Page):
     heading_course = locators.heading_course
     course_heading = conf.course_heading
     recommended_path = locators.recommended_path
-    recommeded_course_path= locators.recommeded_course_path
+    recommeded_course_path = locators.recommeded_course_path
+    recommended_course = conf.recommended_course
     redirect_title_course = conf.redirect_title_course_recommended
 
     def start(self):
         "Use this method to go to specific URL -- if needed"
-        url = 'catalog/language/sql'
+        url = conf.course_url
         self.open(url)
 
     @Wrapit._exceptionHandler
@@ -51,7 +52,7 @@ class Codecademy_Course_Page(Base_Page):
     @Wrapit._screenshot
     def click_course(self):
         "Click the  course in  Course page"
-        result_flag = self.click_element(self.recommeded_course_path)
+        result_flag = self.click_element(self.recommeded_course_path %self.recommended_course)
         self.conditional_write(result_flag,
                                positive='Clicked on the %s in the course'%self.redirect_title_course,
                                negative='Could not click on the recommended course %s'%self.redirect_title_course,
@@ -59,7 +60,6 @@ class Codecademy_Course_Page(Base_Page):
         return result_flag
 
     @Wrapit._exceptionHandler
-    @Wrapit._screenshot
     def check_redirect(self):
         "Check if we have been redirected to the Recommended course page"
         result_flag = False
@@ -70,7 +70,6 @@ class Codecademy_Course_Page(Base_Page):
         return result_flag
 
     @Wrapit._exceptionHandler
-    @Wrapit._screenshot
     def select_course_recommended(self):
         "Selecting the course"
         result_flag = self.check_heading()
