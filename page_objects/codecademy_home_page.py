@@ -14,7 +14,7 @@ from .Base_Page import Base_Page
 class Codecademy_Home_Page(Base_Page):
     "Page object for the Codecademy Home page"
 
-    # locators
+    # locators for home page
     heading = locators.heading
     catalog_path = locators.catalog_path
     redirect_title_catalog = conf.redirect_title_catalog
@@ -28,7 +28,7 @@ class Codecademy_Home_Page(Base_Page):
 
     def start(self):
         "Use this method to go to specific URL -- if needed"
-        url = 'learn'
+        url = conf.home_url
         self.open(url)
 
     @Wrapit._exceptionHandler
@@ -55,7 +55,6 @@ class Codecademy_Home_Page(Base_Page):
         return result_flag
 
     @Wrapit._exceptionHandler
-    @Wrapit._screenshot
     def check_redirect_catalog(self):
         "Check if we have been redirected to the redirect page"
         result_flag = False
@@ -89,6 +88,7 @@ class Codecademy_Home_Page(Base_Page):
 
         return result_flag
 
+    @Wrapit._exceptionHandler
     def search_course_enter(self):
         "Hit enter inorder to search"
         result_flag = self.hit_enter(self.search_type_text_area)
@@ -99,6 +99,7 @@ class Codecademy_Home_Page(Base_Page):
 
         return result_flag
 
+    @Wrapit._exceptionHandler
     def verify_title_search(self):
        "Check if we have been redirected to the redirect page"
        result_flag = False
@@ -119,6 +120,7 @@ class Codecademy_Home_Page(Base_Page):
 
         return result_flag
 
+    @Wrapit._exceptionHandler
     def verify_course_list(self):
         "Verifying the courses are displayed as per search"
         result_flag = self.check_element_present(self.search_redirect_page_check)
@@ -131,7 +133,6 @@ class Codecademy_Home_Page(Base_Page):
 
 
     @Wrapit._exceptionHandler
-    @Wrapit._screenshot
     def go_to_catalog(self):
         "Click  the Catalog page"
         result_flag = self.check_heading_home()
