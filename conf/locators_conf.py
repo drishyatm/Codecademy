@@ -27,15 +27,20 @@ popular_search_area = "xpath,//BUTTON[text()='%s']"
 search_redirect_page_check = "xpath,//div//span[text()='1']"
 
 # Locators for codecademy catalog page(codecademy_catalog_page.py)
-heading_catalog = "xpath,//title[text()='All Courses & Tutorials | Codecademy']"
-sql_course_path = "xpath,//A[text()='%s']"
+heading_catalog = "xpath,//title[text()='Catalog Home | Codecademy']"
+course_path = "xpath,//A[text()='%s']"
 
-# Locators for codecademy sql course page(codecademy_sql_course_page.py)
-heading_course_sql = "xpath,//title[text() = '%s']"
-recommended_path_sql = "xpath,//H2[text() = 'Recommended']"
-recommeded_course_sql_path = "xpath,//a[@href='/learn/learn-sql'][@data-testid='curriculum-card-learn-sql']"
+# Locators for codecademy course page(codecademy_course_page.py)
+heading_course = "xpath,//title[text() = '%s']"
+recommended_path= "xpath,//H2[text() = 'Recommended']"
+recommeded_course_path = "xpath,//a[@data-testid='%s']"
 
 
-# Locators for codecademy enroll sql course page(codecademy_enroll_sql_course_page.py)
-heading_learn_sql = "xpath,//title[text() = 'Learn SQL | Codecademy']"
-enroll_course_button = "xpath,//header/descendant::A[@aria-label='Start Course'][text()='Start']"
+# Locators for codecademy enroll course page(codecademy_enroll_course_page.py)
+heading_enroll_page = "xpath,//title[text() = '%s']"
+enroll_course_button = "xpath,//A[@data-testid='syllabus-header-cta-button'][text()='Start']"
+
+#Locators for start course page (codecademy_start_course_page.py)
+heading_start_page = "xpath,//title[text() = '%s']"
+scroll_element = "xpath,//div [@data-testid='narrative-content']"
+connection_symbol = "xpath,//span[text()='Connecting to Codecademy']"

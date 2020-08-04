@@ -7,7 +7,7 @@ Select one of the course from the catalog
 from utils.Wrapit import Wrapit
 from .Base_Page import Base_Page
 import conf.locators_conf as locators
-import conf.catalog_page_conf as courses
+import conf.test_codecademy_conf as conf
 
 
 class Codecademy_Catalog_Page(Base_Page):
@@ -15,13 +15,13 @@ class Codecademy_Catalog_Page(Base_Page):
 
     # locators
     heading_catalog = locators.heading_catalog
-    sql_course_path = locators.sql_course_path
-    course_name = courses.course_name
-    redirect_title_course = courses.redirect_title_course
+    course_path = locators.course_path
+    course_name = conf.course_name
+    redirect_title_course = conf.redirect_title_course
 
     def start(self):
         "Use this method to go to specific URL -- if needed"
-        url = 'catalog/all'
+        url = conf.catalog_url
         self.open(url)
 
     @Wrapit._exceptionHandler
@@ -38,9 +38,9 @@ class Codecademy_Catalog_Page(Base_Page):
     @Wrapit._exceptionHandler
     @Wrapit._screenshot
     def click_course(self):
-        "Click the SQL course in catalog page"
+        "Click the course in catalog page"
         result_flag = self.click_element(
-            self.sql_course_path % self.course_name)
+            self.course_path % self.course_name)
         self.conditional_write(result_flag,
                                positive='Clicked on the %s course' %self.course_name,
                                negative='Could not click on the %s course'%self.course_name,
@@ -49,7 +49,6 @@ class Codecademy_Catalog_Page(Base_Page):
         return result_flag
 
     @Wrapit._exceptionHandler
-    @Wrapit._screenshot
     def check_redirect(self):
         "Check if we have been redirected to the course page"
         result_flag = False
@@ -60,7 +59,6 @@ class Codecademy_Catalog_Page(Base_Page):
         return result_flag
 
     @Wrapit._exceptionHandler
-    @Wrapit._screenshot
     def select_course(self):
         "Selecting the course"
         result_flag = self.check_heading()

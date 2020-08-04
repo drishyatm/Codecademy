@@ -60,17 +60,24 @@ def test_codecademy(test_obj):
                             % test_obj.get_current_url(),
                             level="critical")
 
-        result_flag = test_obj.select_course_sql()
+        result_flag = test_obj.select_course_recommended()
         test_obj.log_result(result_flag,
                             positive="Successfully Identified the Course \n",
                             negative="Failed to Identify the recommended course  \nOn url:%s"
                             % test_obj.get_current_url(),
                             level="critical")
 
-        result_flag = test_obj.select_enroll_course_sql()
+        result_flag = test_obj.select_enroll_course()
         test_obj.log_result(result_flag,
                             positive="Successfully enrolled the Course \n",
                             negative="Failed to enroll the course  \nOn url:%s"
+                            % test_obj.get_current_url(),
+                            level="critical")
+
+        result_flag = test_obj.learn_course()
+        test_obj.log_result(result_flag,
+                            positive="Successfully Started the Course \n",
+                            negative="Failed to start the course  \nOn url:%s"
                             % test_obj.get_current_url(),
                             level="critical")
 

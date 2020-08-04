@@ -7,14 +7,15 @@ verify the search page with title
 Click on search icon again
 click on any of the popular search course ( selected html)
 """
-from page_objects.PageFactory import PageFactory
-from utils.Option_Parser import Option_Parser
-import conf.home_page_conf as home_page_conf
-import conf.login_page_conf as conf
 import os
 import sys
 import time
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from page_objects.PageFactory import PageFactory
+from utils.Option_Parser import Option_Parser
+import conf.test_codecademy_conf as config
+import conf.login_page_conf as conf
+
 
 
 def test_codecademy(test_obj):
@@ -38,7 +39,7 @@ def test_codecademy(test_obj):
         code_password = conf.password
 
         # Get the  details from the conf file for home page
-        search_text_course = home_page_conf.search_text_course
+        search_text_course = config.search_text_course
 
         # Set and log in to Codecademy
         result_flag = test_obj.Log_in(user_name, code_password)
@@ -61,6 +62,10 @@ def test_codecademy(test_obj):
         test_obj.write_test_summary()
         expected_pass = test_obj.result_counter
         actual_pass = test_obj.pass_counter
+
+        # teardowm
+        test_obj.wait(3)
+        test_obj.teardown()
 
     except Exception as e:
         print("Exception when trying to run test: %s" % __file__)
