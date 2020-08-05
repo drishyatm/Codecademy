@@ -42,5 +42,7 @@ enroll_course_button = "xpath,//A[@data-testid='syllabus-header-cta-button'][tex
 
 #Locators for start course page (codecademy_start_course_page.py)
 heading_start_page = "xpath,//title[text() = '%s']"
-scroll_element = "xpath,//P[text()='Press Run.']"
-connection_symbol = "xpath,//span[text()='Connecting to Codecademy']"
+scroll_element = "xpath,//div//descendant::p[text()='Press Run.']"
+code_element = "xpath,//code//descendant::div[@class ='CodeMirror'] "
+code_area = "xpath,//div[@class='view-line']"
+

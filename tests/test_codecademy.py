@@ -88,9 +88,7 @@ def test_codecademy(test_obj):
         expected_pass = test_obj.result_counter
         actual_pass = test_obj.pass_counter
 
-        # teardowm
-        test_obj.wait(3)
-        test_obj.teardown()
+        
     except Exception as e:
         print("Exception when trying to run test: %s" % __file__)
         print("Python says:%s" % str(e))

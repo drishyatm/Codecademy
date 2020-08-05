@@ -430,6 +430,13 @@ class Base_Page(Borg, unittest.TestCase):
         self.driver.execute_script(
             "arguments[0].setAttribute('style', arguments[1])", element, element_style)
 
+    def set_text_to_element(self, locator, value, wait_seconds=3):
+        element = self.get_element(locator)
+        self.driver.execute_script("arguments[0].innerText('test')", element)
+        result_flag = True
+        self.wait(wait_seconds)
+        return result_flag
+
     def get_element(self, locator, verbose_flag=True):
         "Return the DOM element of the path or 'None' if the element is not found "
         dom_element = None
@@ -478,7 +485,7 @@ class Base_Page(Borg, unittest.TestCase):
 
         return dom_elements
 
-    def click_element(self, locator, wait_time=5):
+    def click_element(self, locator, wait_time=3):
         "Click the button supplied"
         result_flag = False
         try:
@@ -647,7 +654,7 @@ class Base_Page(Borg, unittest.TestCase):
             self.exceptions.append("An exception occurred when hitting enter")
                
         return result_flag
-        
+    """    
     def scroll_down(self, locator, wait_time=2):
         "Scroll down"
         print("srolling begins")
@@ -662,6 +669,25 @@ class Base_Page(Borg, unittest.TestCase):
             return None
         print ("scrolloing down here")
         return result_flag
+    """
+
+    def scroll_down(self, locator, wait_time=2):
+        "Scroll down"
+        result_flag = False
+        try:
+            element = self.get_element(locator)
+            action_obj = ActionChains(self.driver)
+            action_obj.move_to_element(element)
+            action_obj.perform()
+            result_flag = True
+            self.wait(wait_time)
+        except Exception as e:
+            self.write(str(e), 'debug')
+            self.exceptions.append("An exception occured when scrolling down")
+            return None
+       
+        return result_flag
+
 
     def hover(self, locator, wait_seconds=2):
         "Hover over the element"
