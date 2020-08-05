@@ -645,12 +645,13 @@ class Base_Page(Borg, unittest.TestCase):
         except Exception as e:
             self.write(str(e), 'debug')
             self.exceptions.append("An exception occurred when hitting enter")
-           
-        
+               
         return result_flag
         
     def scroll_down(self, locator, wait_time=2):
         "Scroll down"
+        print("srolling begins")
+        result_flag = False
         try:
             element = self.get_element(locator)
             element.send_keys(Keys.PAGE_DOWN)
@@ -659,6 +660,8 @@ class Base_Page(Borg, unittest.TestCase):
             self.write(str(e), 'debug')
             self.exceptions.append("An exception occured when scrolling down")
             return None
+        print ("scrolloing down here")
+        return result_flag
 
     def hover(self, locator, wait_seconds=2):
         "Hover over the element"

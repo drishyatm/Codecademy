@@ -37,6 +37,7 @@ class Codecademy_Start_Course_Page(Base_Page):
     @Wrapit._exceptionHandler
     def scroll_down_course(self):
         "Scroll down to start learning"
+        print("In method of scroll down")
         result_flag = self.scroll_down(self.scroll_path)
         self.conditional_write(result_flag,
                                positive='Clicked on the Scroll in the   start page ',
