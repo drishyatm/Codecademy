@@ -43,6 +43,7 @@ class Codecademy_Enroll_Course_Page(Base_Page):
                                positive='Clicked on the Start button  in the Enroll course page ',
                                negative='Could not click on the Start button Enroll course page',
                                level='debug')
+        
         return result_flag
 
     @Wrapit._exceptionHandler
@@ -53,7 +54,6 @@ class Codecademy_Enroll_Course_Page(Base_Page):
             result_flag = True
             self.switch_page("Start course page")
          
-
         return result_flag
 
     @Wrapit._exceptionHandler
