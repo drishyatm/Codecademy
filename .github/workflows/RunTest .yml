@@ -27,12 +27,5 @@ jobs:
       run: echo Hello, world!
 
     # Runs a set of commands using the runners shell
-    - name: Install depedencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        # install black if available (Python 3.6 and above), and autopep8 for testing the pipe mode
-        pip install autopep8 || true
-        echo Added all actions to build,
     -  name: Test with pytest
        run: pytest -k codecademy.py
