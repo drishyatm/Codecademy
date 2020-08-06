@@ -1,6 +1,6 @@
 """
 This class models the Codecademy page of the Enrolling the course 
-URL: courses/learn-sql/lessons/manipulation/exercises/<course>
+URL: courses/<coursename>/lessons/manipulation/exercises/<course>
 Verify the heading, click on start button of the course and verify the redirect
 """
 from utils.Wrapit import Wrapit
@@ -17,7 +17,8 @@ class Codecademy_Start_Course_Page(Base_Page):
     heading_connecting = conf.enroll_heading
     scroll_path = locators.scroll_element
     code_path = locators.code_element
-    code_area= locators.code_area
+    code_area = locators.code_area
+    run_button = locators.run_button
     #redirect_title_course = 
 
     def start(self):
@@ -50,20 +51,30 @@ class Codecademy_Start_Course_Page(Base_Page):
     def get_code_element(self):
         "get the code element "
         code_element = self.get_text(self.code_path)
-        print("This is the code", code_element)
-        
+                 
         return code_element
 
     @Wrapit._exceptionHandler
+    @Wrapit._screenshot
     def set_code_element(self,code_element):
         "set the code element"
-        print("code in set function",code_element)
         result_flag = self.set_text_to_element(self.code_area, code_element)
         self.conditional_write(result_flag,
-                               positive='Set the code to: %s' % code_element,
+                               positive='Set the code to Terminal' ,
                                negative='Failed to set the code in the terminal',
                                level='debug')
 
+        return result_flag
+
+    @Wrapit._exceptionHandler
+    @Wrapit._screenshot
+    def click_run_button(self):
+        "Click the Start button in Recommended Course page"
+        result_flag = self.click_element(self.run_button)
+        self.conditional_write(result_flag,
+                               positive='Clicked on the Run button  in the Start course page ',
+                               negative='Could not click on the Run button Start course page',
+                               level='debug')
         return result_flag
 
     @Wrapit._exceptionHandler
@@ -81,10 +92,9 @@ class Codecademy_Start_Course_Page(Base_Page):
         result_flag = self.check_heading()
         result_flag &= self.scroll_down_course()
         code_element = self.get_code_element()
-        print("Here the codemelent is",code_element )
         result_flag &= self.set_code_element(code_element)
-
-       # result_flag &= self.click_start_course()
+        result_flag &= self.click_run_button()
+      
         #result_flag &= self.check_redirect()
 
         return result_flag

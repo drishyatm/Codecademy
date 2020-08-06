@@ -432,9 +432,13 @@ class Base_Page(Borg, unittest.TestCase):
 
     def set_text_to_element(self, locator, value, wait_seconds=3):
         element = self.get_element(locator)
-        self.driver.execute_script("arguments[0].innerText('test')", element)
+        value = value.decode("utf-8")
+        print("value before passing to the JS",value)
+        js_string = "arguments[0].innerText='%s'" % value
+        self.driver.execute_script(js_string, element)
         result_flag = True
         self.wait(wait_seconds)
+        
         return result_flag
 
     def get_element(self, locator, verbose_flag=True):
@@ -537,6 +541,7 @@ class Base_Page(Borg, unittest.TestCase):
         text = ''
         try:
             text = self.get_element(locator).text
+            print ("this is in get text",text)
         except Exception as e:
             self.write(e)
             self.exceptions.append(

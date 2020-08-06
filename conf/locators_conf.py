@@ -44,5 +44,6 @@ enroll_course_button = "xpath,//A[@data-testid='syllabus-header-cta-button'][tex
 heading_start_page = "xpath,//title[text() = '%s']"
 scroll_element = "xpath,//div//descendant::p[text()='Press Run.']"
 code_element = "xpath,//code//descendant::div[@class ='CodeMirror'] "
-code_area = "xpath,//div[@class='view-line']"
+code_area = "xpath,//div[@class='view-line']//descendant::span"
+run_button = "xpath,//button[text()='Run']"
 
