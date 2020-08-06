@@ -43,7 +43,7 @@ jobs:
         headless: true
         
     - name: Test with pytest 
-      run: pytest -k test_codecademy.py --browser=chrome --headless
+      run: pytest -k test_codecademy.py
       
         
          
