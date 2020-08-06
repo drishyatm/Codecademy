@@ -35,10 +35,12 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Test with pytest 
-      run: |
-        sudo apt install google-chrome-stable
-        seleniumbase isntall chromedriver
+    - name: Environment
+      uses: ./
+      with:
+        working-directory: tests/
+        browser: chrome
+        headless: true
         
     - name: Test with pytest 
       run: pytest -k test_codecademy.py --browser=chrome --headless
