@@ -16,6 +16,8 @@ class Codecademy_Start_Course_Page(Base_Page):
     heading_start_page = locators.heading_start_page
     heading_connecting = conf.enroll_heading
     scroll_path = locators.scroll_element
+    code_path = locators.code_element
+    code_area= locators.code_area
     #redirect_title_course = 
 
     def start(self):
@@ -37,12 +39,31 @@ class Codecademy_Start_Course_Page(Base_Page):
     @Wrapit._exceptionHandler
     def scroll_down_course(self):
         "Scroll down to start learning"
-        print("In method of scroll down")
         result_flag = self.scroll_down(self.scroll_path)
         self.conditional_write(result_flag,
                                positive='Clicked on the Scroll in the   start page ',
                                negative='Could not scroll on the start course page',
                                level='debug')
+        return result_flag
+
+    @Wrapit._exceptionHandler
+    def get_code_element(self):
+        "get the code element "
+        code_element = self.get_text(self.code_path)
+        print("This is the code", code_element)
+        
+        return code_element
+
+    @Wrapit._exceptionHandler
+    def set_code_element(self,code_element):
+        "set the code element"
+        print("code in set function",code_element)
+        result_flag = self.set_text_to_element(self.code_area, code_element)
+        self.conditional_write(result_flag,
+                               positive='Set the code to: %s' % code_element,
+                               negative='Failed to set the code in the terminal',
+                               level='debug')
+
         return result_flag
 
     @Wrapit._exceptionHandler
@@ -59,6 +80,10 @@ class Codecademy_Start_Course_Page(Base_Page):
         "Start  the course"
         result_flag = self.check_heading()
         result_flag &= self.scroll_down_course()
+        code_element = self.get_code_element()
+        print("Here the codemelent is",code_element )
+        result_flag &= self.set_code_element(code_element)
+
        # result_flag &= self.click_start_course()
         #result_flag &= self.check_redirect()
 
