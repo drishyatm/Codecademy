@@ -130,6 +130,11 @@ class Codecademy_Home_Page(Base_Page):
                                level='debug')
 
         return result_flag
+    """
+    @Wrapit._exceptionHandler
+    def click_on_popup(self):
+
+    """
 
 
     @Wrapit._exceptionHandler
