@@ -55,7 +55,8 @@ jobs:
         headless: true
         
     - name: Test with pytest 
-      run: pytest -k test_codecademy.py
+      run: python -m pytest -k test_codecademy.py --browser headless-chrome
+
       
         
          
