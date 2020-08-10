@@ -56,9 +56,10 @@ jobs:
         browser: chrome
         headless: true
         
-    - name: Test with pytest 
+    - name: Test with pytest for enrolling course
       run: python -m pytest -k test_codecademy.py --browser headless-chrome
 
-      
+    - name: Test with pytest for searching course
+      run: python -m pytest -k test_search_course.py --browser headless-chrome
         
          
